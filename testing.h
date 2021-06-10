@@ -232,13 +232,20 @@ bool test_max_turns() {
   else std::cout << "FAILED: Test 3" << std::endl;
 
   std::cout << "Running Test 4" << std::endl;
+  maze1.seekg(0);
+  Game game5(&maze1, Game::RANDOM_PLAYER, Game::NO_PRINT);
+  passed = game5.PlayUntilEnd(3);
+  if (passed == false) num_tests_passed++;
+  else std::cout << "FAILED: Test 4" << std::endl;
+
+  std::cout << "Running Test 5" << std::endl;
   mazeImpossible2.seekg(0);
   Game game(&mazeImpossible2, Game::RANDOM_PLAYER, Game::NO_PRINT);
   passed = game.PlayUntilEnd(100);
   if (passed == false) num_tests_passed++;
-  else std::cout << "FAILED: Test 4" << std::endl;
+  else std::cout << "FAILED: Test 5" << std::endl;
 
-  if (num_tests_passed == 4) {
+  if (num_tests_passed == 5) {
     return true;
   }
   else {
